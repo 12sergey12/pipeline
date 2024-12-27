@@ -1,0 +1,24 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Deploy Application
+      run: |
+        # Установить playbook Ansible
+        ansible-playbook -i inventory.ini deploy.yml
+
+    - name: Send Notification
+      run: |
+        # добавить команды для отправки уведомления
+        echo "Deployment Successful!" | mail -s "Deploy Status" ccentre@inbox
