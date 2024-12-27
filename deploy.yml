@@ -2,7 +2,7 @@
   tasks:
     - name: Установка Java
       apt:
-        name: openjdk-11-jdk
+        name: openjdk-17-jdk
         state: present
     - name: Копировать .war файл на сервер
       copy:
