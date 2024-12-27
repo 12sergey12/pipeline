@@ -1,0 +1,21 @@
+- hosts: tomcat
+  tasks:
+    - name: Установка Java
+      apt:
+        name: openjdk-11-jdk
+        state: present
+    - name: Копировать .war файл на сервер
+      copy:
+        src: /home/sergey/demo/demo/target/demo-0.0.1-SNAPSHOT.war  # Замените на путь к вашему .war файлу
+        dest: /opt/tomcat/webapps/demo-0.0.1-SNAPSHOT.war
+    - name: Запуск Tomcat (если нужно)
+      shell: /opt/tomcat/bin/startup.sh
+    - name: Send notification email
+      mail:
+        host: smtp.your-email-provider.com  # Настройте SMTP-сервер
+        port: 587
+        username: your-email@example.com
+        password: your-email-password
+        to: ccentre@inbox.ru
+        subject: Application deployed successfully!
+        body: The app has been successfully deployed on Tomcat.

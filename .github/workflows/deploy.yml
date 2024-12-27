@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy Java Application
 
 on:
   push:
@@ -6,19 +6,16 @@ on:
       - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout Repository
+    - name: Checkout code
       uses: actions/checkout@v2
-
-    - name: Deploy Application
+    - name: Setup Ansible
       run: |
-        # Установить playbook Ansible
-        ansible-playbook -i inventory.ini deploy.yml
+        sudo apt-get update
+        sudo apt-get install -y ansible
+    - name: Run Ansible Playbook
+      run: ansible-playbook -i inventory.ini deploy.yml
 
-    - name: Send Notification
-      run: |
-        # добавить команды для отправки уведомления
-        echo "Deployment Successful!" | mail -s "Deploy Status" ccentre@inbox
+
