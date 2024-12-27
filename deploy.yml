@@ -1,11 +1,12 @@
+- name: ping module
+   hosts: all
+   become: false
+   tasks:
+     - name: test connectoin
+       ping:
+
 - hosts: tomcat
   tasks:
-    - name: ping module
-      hosts: all
-      become: false
-      tasks:
-        - name: test connectoin
-          ping:
     - name: Установка Java
       apt:
         name: openjdk-17-jdk
