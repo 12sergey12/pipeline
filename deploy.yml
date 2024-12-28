@@ -7,7 +7,7 @@
         state: present
     - name: Копировать .war файл на сервер
       copy:
-        src: /home/sergey/demo/demo/target/demo-0.0.1-SNAPSHOT.war  # Замените на путь к вашему .war файлу
+        src: /java/target/demo-0.0.1-SNAPSHOT.war  # Замените на путь к вашему .war файлу
         dest: /opt/tomcat/webapps/demo-0.0.1-SNAPSHOT.war
     - name: Запуск Tomcat (если нужно)
       shell: /opt/tomcat/bin/startup.sh
