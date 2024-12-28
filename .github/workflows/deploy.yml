@@ -18,10 +18,10 @@ jobs:
         wget https://github.com/12sergey12/pipeline/blob/main/java/target/demo-0.0.1-SNAPSHOT.war  # укажите правильный путь
 
     - name: Copy WAR file to server
-      env:
-        ANSIBLE_HOST_KEY_CHECKING: false  # Отключаем проверку ключа во время тестирования
+#      env:
+#        ANSIBLE_HOST_KEY_CHECKING: false  # Отключаем проверку ключа во время тестирования
 #      run: |
- #       ansible-playbook -i inventory.ini deploy.yml
+#       ansible-playbook -i inventory.ini deploy.yml
 
     - name: Setup Ansible
       run: |
