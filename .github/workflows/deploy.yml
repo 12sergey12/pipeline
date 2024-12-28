@@ -18,15 +18,15 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y ansible
 
+    - name: Add host to known_hosts
+      run: |
+        mkdir -p ~/.ssh
+        ssh-keyscan -H 94.130.98.86 >> ~/.ssh/known_hosts
+
     - name: Setup SSH Key
       run: |
         echo "${{ secrets.MY_SSH_KEY }}" > ~/.ssh/id_ed25519
         chmod 600 ~/.ssh/id_ed25519
-
-#    - name: Add host to known_hosts
-#      run: |
-#        mkdir -p ~/.ssh
-#        ssh-keyscan -H 94.130.98.86 >> ~/.ssh/known_hosts
 
     - name: Run Ansible Playbook
       run: ansible-playbook -i inventory.ini deploy.yml
