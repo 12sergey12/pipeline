@@ -13,6 +13,16 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Download WAR file
+      run: |
+        wget https://github.com/12sergey12/pipeline/blob/main/java/target/demo-0.0.1-SNAPSHOT.war  # укажите правильный путь
+
+    - name: Copy WAR file to server
+      env:
+        ANSIBLE_HOST_KEY_CHECKING: false  # Отключаем проверку ключа во время тестирования
+#      run: |
+ #       ansible-playbook -i inventory.ini deploy.yml
+
     - name: Setup Ansible
       run: |
         sudo apt-get update
@@ -30,4 +40,11 @@ jobs:
 
     - name: Run Ansible Playbook
       run: ansible-playbook -i inventory.ini deploy.yml
+
+
+
+
+
+
+
 
