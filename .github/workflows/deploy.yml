@@ -9,12 +9,20 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+
     - name: Checkout code
       uses: actions/checkout@v2
+
     - name: Setup Ansible
       run: |
         sudo apt-get update
         sudo apt-get install -y ansible
+
+    - name: Add host to known_hosts
+      run: |
+        mkdir -p ~/.ssh
+        ssh-keyscan -H 94.130.98.86 >> ~/.ssh/known_hosts
+
     - name: Run Ansible Playbook
 #      run: ansible-playbook -i inventory.ini deploy.yml
       run: ansible all -m ping -i inventory.ini
