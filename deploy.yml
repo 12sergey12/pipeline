@@ -20,7 +20,6 @@
         port: 587
         username: "{{ lookup('env', 'SMTP_USERNAME') }}"    # Используйте секрет для имени пользователя
         password: "{{ lookup('env', 'SMTP_PASSWORD') }}"    # Используйте секрет для пароля
-#        to: ccentre@inbox.ru
-        to: serega_baranov_2017@mail.ru
+        to: ccentre@inbox.ru
         subject: Application deployed successfully!
         body: Приложение успешно развернуто на вашем сервере Tomcat (The app has been successfully deployed on Tomcat.)
