@@ -23,6 +23,6 @@
         username: "{{ lookup('env', 'SMTP_USERNAME') }}"    # Используйте секрет для имени пользователя
         password: "{{ lookup('env', 'SMTP_PASSWORD') }}"    # Используйте секрет для пароля
 #        to: ccentre@inbox.ru
-        to: serega_baranov_2017@mail.eu
+        to: serega_baranov_2017@mail.ru
         subject: Application deployed successfully!
         body: The app has been successfully deployed on Tomcat.
