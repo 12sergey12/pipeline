@@ -6,30 +6,32 @@
         name: openjdk-17-jdk
         state: present
 
-#    - name: Копировать .war файл на сервер
-#      copy:
-#        src: demo-0.0.1-SNAPSHOT.war  # Замените на путь к вашему .war файлу
-#        dest: /opt/tomcat/webapps/demo-0.0.1-SNAPSHOT.war
-
-    - name: Копирование WAR файла в временную директорию
+    - name: Копировать .war файл на сервер
       copy:
-        src: demo-0.0.1-SNAPSHOT.war  # Путь к вашему WAR файлу
-        dest: /tmp/demo-0.0.1-SNAPSHOT.war
+        src: /tmp/pipeline/pipeline/target/demo-0.0.1-SNAPSHOT.war  # Замените на путь к вашему .war файлу
+        dest: /opt/tomcat/webapps/demo-0.0.1-SNAPSHOT.war
 
-    - name: Создание директории для развертывания
-      file:
-        path: /opt/tomcat/webapps/demo-0.0.1-SNAPSHOT
-        state: directory
+#    - name: Копирование WAR файла в временную директорию
+#      copy:
+#       src: /tmp/pipeline/pipeline/target/demo-0.0.1-SNAPSHOT.war  # Путь к вашему WAR файлу
+#        src: demo-0.0.1-SNAPSHOT.war  # Путь к вашему WAR файлу
+#        dest: /tmp/demo-0.0.1-SNAPSHOT.war
+#        dest: /tmp/demo-0.0.1-SNAPSHOT.war
+
+#    - name: Создание директории для развертывания
+#      file:
+#        path: /opt/tomcat/webapps/demo-0.0.1-SNAPSHOT
+#        state: directory
 #        owner: tomcat
 #        group: tomcat
-        mode: '755'
+#        mode: '755'
 
 
-    - name: Разархивирование WAR файла
-      command:
-        cmd: unzip -o /tmp/demo-0.0.1-SNAPSHOT.war -d /opt/tomcat/webapps/demo-0.0.1-SNAPSHOT
-      args:
-        removes: /opt/tomcat/webapps/demo-0.0.1-SNAPSHOT  # Убедитесь, что каталог удалён перед разархивированием
+#    - name: Разархивирование WAR файла
+#      command:
+#        cmd: unzip -o /tmp/demo-0.0.1-SNAPSHOT.war -d /opt/tomcat/webapps/demo-0.0.1-SNAPSHOT
+#      args:
+#        removes: /opt/tomcat/webapps/demo-0.0.1-SNAPSHOT  # Убедитесь, что каталог удалён перед разархивированием
 
 #    - name: Разархивирование WAR файла
 #      unarchive:

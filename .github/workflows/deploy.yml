@@ -21,9 +21,6 @@ jobs:
       run: |
         git clone https://github.com/12sergey12/pipeline.git /tmp/pipeline
 
-#        repo: 'https://github.com/12sergey12/pipeline.git'  # Замените на ваш репозиторий
-
-
     - name: Setup Ansible
       run: |
         sudo apt-get update
