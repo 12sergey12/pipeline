@@ -8,8 +8,27 @@
 
     - name: Копировать .war файл на сервер
       copy:
-        src: demo-0.0.1-SNAPSHOT.war  # Замените на путь к вашему .war файлу
-        dest: /opt/tomcat/webapps/demo-0.0.1-SNAPSHOT.war
+
+    - name: Копирование WAR файла в временную директорию
+      copy:
+        src: demo-0.0.1-SNAPSHOT.war  # Путь к вашему WAR файлу
+        dest: /tmp/demo-0.0.1-SNAPSHOT.war
+    - name: Разархивирование WAR файла
+      unarchive:
+        src: /tmp/demo-0.0.1-SNAPSHOT.war  # Путь к временной директории
+        dest: /opt/tomcat/webapps/demo-0.0.1-SNAPSHOT  # Путь к вашей директории webapps
+        remote_src: yes  # Указывает, что исходный файл уже находится на удалённой машине
+    - name: Установка прав доступа к разархивированной папке
+      file:
+        path: /opt/tomcat/webapps/demo-0.0.1-SNAPSHOT
+        owner: tomcat
+        group: tomcat
+        mode: '755'
+        state: directory
+
+
+#        src: demo-0.0.1-SNAPSHOT.war  # Замените на путь к вашему .war файлу
+#        dest: /opt/tomcat/webapps/demo-0.0.1-SNAPSHOT.war
 
     - name: Перезапуск Tomcat
       shell: /opt/tomcat/bin/shutdown.sh && /opt/tomcat/bin/startup.sh
