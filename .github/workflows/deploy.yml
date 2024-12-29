@@ -39,6 +39,10 @@ jobs:
         chmod 600 ~/.ssh/id_ed25519
 
     - name: Run Ansible Playbook
+      env:
+        ANSIBLE_HOST_KEY_CHECKING: false  # Отключение проверки SSH ключа во время тестирования
+        SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+        SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
       run: ansible-playbook -i inventory.ini deploy.yml
 
 

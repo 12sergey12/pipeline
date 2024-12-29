@@ -20,8 +20,8 @@
       mail:
         host: smtp.gmail.com  # Настройте SMTP-сервер
         port: 587
-        username: ${{ secrets.SMTP_USERNAME }}  # Используйте секрет для имени пользователя
-        password: ${{ secrets.SMTP_PASSWORD }}  # Используйте секрет для пароля
+        username: "{{ lookup('env', 'SMTP_USERNAME') }}"    # Используйте секрет для имени пользователя
+        password: "{{ lookup('env', 'SMTP_PASSWORD') }}"    # Используйте секрет для пароля
 #        to: ccentre@inbox.ru
         to: serega_baranov_2017@mail.eu
         subject: Application deployed successfully!
