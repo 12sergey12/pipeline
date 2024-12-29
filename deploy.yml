@@ -11,9 +11,8 @@
         src: demo-0.0.1-SNAPSHOT.war  # Замените на путь к вашему .war файлу
         dest: /opt/tomcat/webapps/demo-0.0.1-SNAPSHOT.war
 
-    - name: Запуск Tomcat
-      shell: /opt/tomcat/bin/.shutdown.sh
-      shell: /opt/tomcat/bin/.startup.sh
+    - name: Перезапуск Tomcat
+      shell: /opt/tomcat/bin/shutdown.sh && /opt/tomcat/bin/startup.sh
 
     - name: Send notification email
       mail:
