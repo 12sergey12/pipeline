@@ -6,8 +6,10 @@
         name: openjdk-17-jdk
         state: present
 
-    - name: Копировать .war файл на сервер
-      copy:
+#    - name: Копировать .war файл на сервер
+#      copy:
+#        src: demo-0.0.1-SNAPSHOT.war  # Замените на путь к вашему .war файлу
+#        dest: /opt/tomcat/webapps/demo-0.0.1-SNAPSHOT.war
 
     - name: Копирование WAR файла в временную директорию
       copy:
