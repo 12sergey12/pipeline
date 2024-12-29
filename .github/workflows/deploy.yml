@@ -18,10 +18,11 @@ jobs:
 #        wget https://github.com/12sergey12/pipeline/blob/main/target/demo-0.0.1-SNAPSHOT.war  # укажите правильный путь
 
     - name: Клонирование репозитория из GitHub
-      git:
-        repo: 'https://github.com/12sergey12/pipeline.git'  # Замените на ваш репозиторий
-        dest: /home/sergey/demwar # Замените на желаемый путь на удаленном сервере
-        update: yes  # Это обновит репозиторий, если он уже существует
+      run: |
+        git clone https://github.com/12sergey12/pipeline.git /home/sergey/demwar
+
+#        repo: 'https://github.com/12sergey12/pipeline.git'  # Замените на ваш репозиторий
+
 
     - name: Setup Ansible
       run: |
