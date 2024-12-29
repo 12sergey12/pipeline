@@ -19,7 +19,7 @@ jobs:
 
     - name: Клонирование репозитория из GitHub
       run: |
-        git clone https://github.com/12sergey12/pipeline.git /home/sergey/demwar
+        git clone https://github.com/12sergey12/pipeline.git /tmp/
 
 #        repo: 'https://github.com/12sergey12/pipeline.git'  # Замените на ваш репозиторий
 
