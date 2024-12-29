@@ -15,7 +15,7 @@ jobs:
 
     - name: Download WAR file
       run: |
-        wget https://github.com/12sergey12/pipeline/blob/main/java/target/demo-0.0.1-SNAPSHOT.war  # укажите правильный путь
+        wget https://github.com/12sergey12/pipeline/blob/main/target/demo-0.0.1-SNAPSHOT.war  # укажите правильный путь
 
 #    - name: Copy WAR file to server
 #      env:
