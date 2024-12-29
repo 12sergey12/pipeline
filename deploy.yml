@@ -25,4 +25,4 @@
 #        to: ccentre@inbox.ru
         to: serega_baranov_2017@mail.ru
         subject: Application deployed successfully!
-        body: The app has been successfully deployed on Tomcat.
+        body: Приложение успешно развернуто на вашем сервере Tomcat (The app has been successfully deployed on Tomcat.)
